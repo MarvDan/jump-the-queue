@@ -1,0 +1,5 @@
+name: jump-the-queue
+title: Jump-the-queue
+version: '1.0'
+nav:
+- modules/ROOT/nav.adoc

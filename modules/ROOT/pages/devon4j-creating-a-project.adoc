@@ -1,0 +1,112 @@
+:toc: macro
+toc::[]
+:idprefix:
+:idseparator: -
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== Introduction
+In this chapter you will learn to create a workspace and create a project using the CLI or the GUI. When using devon, each project has its own workspace and can be edited by different instances of the IDE, e.g. eclipse.
+
+
+==  Command Line Interface
+* Go to your Devon-dist. folder. Open `console.bat` 
+
+* Execute: `cd workspaces` 
+
+* Execute: `devon workspace create -workspace MyWS` 
+
+* If the job is finished, use CTRL+C to and answer y to the question
+
+* Execute: `cd MyWS` 
+
+* Execute: `devon devon4j create –p` and insert the following entries. 
+
+** `serverpath`: hit Enter. (So it will be the current directory).
+
+** `servername`: `myServer` (or any name you like).
+
+** `packagename`: `com.capgemini.myServer` 
+
+** `groupid`: `com.capgemini`  
+
+** `version`:  1.0 
+
+** `dbtype`: h2 
+
+image::images/tutorialsources/devcon-create-backend.png[Devcon Back-end Creation]
+
+* Execute: `update-all-workspaces.bat` from your devon-dist. folder.
+
+* Execute: `cd MyServer` 
+
+* Execute: `mvn install` (installs the Maven project).
+
+* Execute: devon devon4j run –port 8081
+
+
+[NOTE]
+== ==  
+There are two commands `devon` and `devcon`. Any of these two commands can be used. With the -h option you will always get help, e.g. `devon -h` or `devon workspaces -h`.
+== == 
+
+We see later, how to access these server. For now just use ctr+c to stop it from running.
+
+==  Graphical User Interface
+* Open: `console.bat`
+
+* Go to your `workspaces` directory.
+
+* Execute : `devcon -g`
+
+* The GUI should open. Open `workspaces` select "create".
+
+image::images/tutorialsources/devcon-gui-workspace.png[Devcon GUI Workspace 1, 600]
+
+* Insert: `MyProject`. Click "Start".
+
+image::images/tutorialsources/devcon-gui-ws02.png[Devcon GUI Workspace 2, 600]
+
+* Click "back".
+
+* Open "devon4j". Select "create".
+
+** `serverpath`: `../MyProject/Servers`
+
+** `servername`: mp
+
+** `packagename`: com.devonfw.application.mp
+
+** `groupid`: com.devonfw.mp
+
+** `version`: v4
+
+** `dbtype`: h2
+
+image::images/tutorialsources/devcon-gui-project.png[Devcon GUI Project, 600]
+
+* Press: "Start"
+
+* From you devon-dist. folder execute : `update-all-workspaces.bat`
+
+* From your devon-dist. folder execute: `eclipse-jumpthequeue.bat`
+
+* Eclipse instance should open.
+
+Now you know how to create a project with devon/devcon.
+
+[NOTE]
+== == 
+You can also create new projects:
+
+- from Eclipse https://github.com/devonfw/devon4j/wiki/tutorial-newapp#from-eclipse[see how]
+
+== == 
+
+'''
+*Next Chapter*: link:jump-the-queue-design[JumpTheQueue Design]
